@@ -1,0 +1,11 @@
+<h1 class="text-center">Log in</h1>
+
+<%= form_for(:session, url: login_path) do |form| %>
+  <%= form.label :email %>
+  <%= form.email_field :email %>
+<br>
+  <%= form.label :password %>
+  <%= form.password_field :password %>
+<br>
+  <%= form.submit "Log in" , class: "btn btn-primary" %>
+<% end %>

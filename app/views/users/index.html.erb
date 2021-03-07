@@ -1,0 +1,21 @@
+<h1 class="text-center">All Alpha Bloggers</h1>
+<div class="row">
+  <table class="table table-hover">
+  <tr>
+    <th>Username</th>
+    <th>Email</th>
+    <th>Created at</th>
+    <th>Updated at</th>
+  </tr>
+<% @users.each do |user| %>
+  <tr>
+    <td><%= link_to user.username, user_path(user) %></td>
+    <td><%= user.email %></td>
+    <td><%= time_ago_in_words(user.created_at) %> ago</td>
+    <td><%= time_ago_in_words(user.updated_at) %> ago</td>
+    <td><%= link_to 'Edit', edit_user_path(user), class: "btn btn-primary" %></td>
+    <td><%= link_to 'Delete', user_path(user), method: :delete, data: {confirm: "Are you sure?"}, class: "btn btn-danger" %></td>
+  </tr>
+<% end %>
+</table>
+</div>
