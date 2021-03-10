@@ -3,7 +3,7 @@
 <p>Title: <%= @article.title %></p>
 <p>Description: <%= @article.description %></p>
 <p>Created by: <%= link_to @article.user.username, user_path(@article.user) %></p>
-<% if logged_in? && current_user == @article.user %>
+<% if logged_in? && (current_user == @article.user || current_user.admin?) %>
 <%= link_to 'Edit this article', edit_article_path(@article) %> |
 <%= link_to 'Delete this article', article_path(@article), method: :delete %> |
 <% end %>

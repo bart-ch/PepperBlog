@@ -5,7 +5,7 @@
     <td><%= article.user.username if article.user %></td>
     <td><%= time_ago_in_words(article.created_at) %> ago</td>
     <td><%= time_ago_in_words(article.updated_at) %> ago</td>
-    <% if logged_in? && current_user == article.user %>
+    <% if logged_in? && (current_user == article.user || current_user.admin?) %>
     <td><%= link_to 'Edit', edit_article_path(article), class: "btn btn-primary" %></td>
     <td><%= link_to 'Delete', article_path(article), method: :delete, data: {confirm: "Are you sure?"}, class: "btn btn-danger" %></td>
     <% else %>

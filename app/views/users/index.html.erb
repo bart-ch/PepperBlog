@@ -15,7 +15,7 @@
     <td><%= user.email %></td>
     <td><%= time_ago_in_words(user.created_at) %> ago</td>
     <td><%= time_ago_in_words(user.updated_at) %> ago</td>
-    <% if logged_in? && current_user == user %>
+    <% if logged_in? && (current_user == user || current_user.admin?) %>
     <td><%= link_to 'Edit', edit_user_path(user), class: "btn btn-primary" %></td>
     <td><%= link_to 'Delete', user_path(user), method: :delete, data: {confirm: "Are you sure?"}, class: "btn btn-danger" %></td>
     <% else %>
