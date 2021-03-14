@@ -14,5 +14,9 @@
   <%= form.label :description %>
   <%= form.text_area :description %>
 <br>
+  <%= form.collection_check_boxes :category_ids, Category.all, :id, :name do |cb| %>
+    <% cb.label(class: "form-check-inline form-check") { cb.check_box(class: "form-check-input") + cb.text } %>
+  <% end %>
+<br>
   <%= form.submit %>
 <% end %>
