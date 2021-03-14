@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
   end
 
   def logged_in?
-    !!current_user # change to present?
+    current_user.present?
   end
 
   def require_user

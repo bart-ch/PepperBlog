@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   root 'pages#home'
   get 'about', to: 'pages#about'
-  
+
   resources :articles
 
   get 'signup', to: 'users#new'
@@ -10,5 +10,5 @@ Rails.application.routes.draw do
   delete 'logout', to: 'sessions#destroy'
   resources :users, except: [:new]
 
-  
+  resources :categories, except: [:destroy]
 end
