@@ -15,8 +15,13 @@
     <tr>
       <td><%= link_to category.name, category_path(category) %></td>
       <td><%= pluralize(category.articles.count, 'article') %> </td>
+      <% if logged_in? && current_user.admin? %>
       <td><%= link_to 'Edit', edit_category_path(category), class: "btn btn-primary" %></td>
       <td><%= link_to 'Delete', category_path(category), method: :delete, data: {confirm: "Are you sure?"}, class: "btn btn-danger" %></td>
+      <% else %>
+      <td></td>
+      <td></td>
+      <% end %>
     </tr>
   <% end %>
   </table>
