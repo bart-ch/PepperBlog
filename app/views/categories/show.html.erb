@@ -1,3 +1,4 @@
+<% content_for :title, "Show Category" %>
 <h1>Category: <%= @category.name  %></h1>
 
 <% if logged_in? && current_user.admin? %>
