@@ -13,8 +13,16 @@
     <%= render '/layouts/messages' %>
     <div class="container">
       <%= yield %>
-        <%= debug(params) if Rails.env.development? %>
+      <% if Rails.env.development? %>
+      <div class="text-center">
+        <%= debug(params) %>
+      </div>
+      <% end %>
     </div>
 
+    <hr>
+    <footer class="text-center">
+        <p>&copy; <%= Time.current.year %> - Shower Blog </p>
+    </footer>
   </body>
 </html>
